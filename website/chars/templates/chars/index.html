@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Character Select</title>
+    <link rel="stylesheet" href="../styles/chars/index.css" />
+  </head>
+  <body>
+    Hello, world. This is the characters screen.
+    <nav></nav>
+    <section>
+      <h1>Char Select</h1>
+      <div id="char-container">
+        {% for char in chars %}
+        <div class="char-square">
+          <div>{{ char.char_name }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    <section>
+      <h1>Filters</h1>
+    </section>
+  </body>
+</html>
