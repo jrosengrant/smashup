@@ -4,4 +4,5 @@ from .models import Character
 
 def index(request):
   chars = Character.objects.all()
-  return render(request, "chars/index.html", {"chars": chars})
+  char_fields = Character._meta.get_fields()
+  return render(request, "chars/index.html", {"chars": chars, "char_fields": char_fields})

@@ -1,25 +1,39 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title>Character Select</title>
-    <link rel="stylesheet" href="../styles/chars/index.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'chars/index.css' %}"
+    />
   </head>
   <body>
     Hello, world. This is the characters screen.
     <nav></nav>
-    <section>
+    <section id="char-select">
       <h1>Char Select</h1>
-      <div id="char-container">
+      <div id="char-select-container">
         {% for char in chars %}
-        <div class="char-square">
-          <div>{{ char.char_name }}</div>
+        <div class="char-tile">
+          <div class="char-img-wrapper">
+            <img src="{% static 'chars/images/' %}{{char.img_url}}" />
+          </div>
+          <div class="char-name">{{ char.char_name }}</div>
         </div>
         {% endfor %}
       </div>
     </section>
-    <section>
+    <section id="char-filters">
       <h1>Filters</h1>
+      <div id="char-filter-container">
+        <div class="char-filter-slider">
+          <label for="weight">Weight</label>
+          <input id="weight" type="range" min="{{}}" />
+        </div>
+      </div>
     </section>
   </body>
 </html>

@@ -15,6 +15,7 @@ def import_books(file_path):
             # walljump = True if "TRUE" else False
             Character.objects.get_or_create(
                 char_name = row['Full Name'],
+                codename = row['Codename'],
                 weight = row['Weight'],
                 num_jumps = row['Number of Jumps'],
                 max_run_vel = row['Run Maximum Velocity'],
@@ -23,11 +24,12 @@ def import_books(file_path):
                 air_jump_height = row['Air Jump Heights'],
                 max_h_air_speed = row['Maximum Horizontal Air Speed'],
                 fastfall_speed = row['Fastfall Speed'],
-                has_walljump = True if "TRUE" else False
+                has_walljump = True if "TRUE" else False,
+                img_url = row['Image File URL']
             )
             print(Character.objects.filter(char_name=row['Full Name']))
 
 if __name__ == '__main__':
-    csv_file_path = os.path.join(os.path.dirname(__file__), '..', "ult_params.csv")
+    csv_file_path = os.path.join(os.path.dirname(__file__), '..', "ult_params - fighter_param_mini.csv")
     print(csv_file_path)  
     import_books(csv_file_path)
